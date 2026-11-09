@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin | Laundry F&B</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="brand">
+                <h2>🫧 Laundry F&B</h2>
+                <p>Admin Panel</p>
+            </div>
+
+            <nav>
+                <button class="menu active" onclick="showPage('orders', this)">
+                    📋 Pesanan
+                </button>
+
+                <button class="menu" onclick="showPage('services', this)">
+                    🧺 Jenis Layanan
+                </button>
+
+                <button class="menu" onclick="showPage('customers', this)">
+                    👥 Pelanggan
+                </button>
+
+                <button class="menu" onclick="showPage('reports', this)">
+                    📊 Laporan
+                </button>
+            </nav>
+
+            <a href="index.html" class="logout">Keluar</a>
+        </aside>
+
+        <!-- KONTEN UTAMA -->
+        <main class="content">
+
+            <header class="topbar">
+                <div>
+                    <h1>Dashboard Admin</h1>
+                    <p>Selamat datang di pengelolaan Laundry F&B</p>
+                </div>
+
+                <div class="admin-info">
+                    <span>👤 Admin</span>
+                </div>
+            </header>
+
+            <!-- RINGKASAN -->
+            <section class="summary">
+                <div class="card">
+                    <p>Total Pesanan</p>
+                    <h2>25</h2>
+                </div>
+
+                <div class="card">
+                    <p>Pesanan Diproses</p>
+                    <h2>8</h2>
+                </div>
+
+                <div class="card">
+                    <p>Pesanan Selesai</p>
+                    <h2>12</h2>
+                </div>
+
+                <div class="card">
+                    <p>Total Pendapatan</p>
+                    <h2>Rp750.000</h2>
+                </div>
+            </section>
+
+            <!-- HALAMAN PESANAN -->
+            <section id="orders" class="page active">
+                <h2>Daftar Pesanan</h2>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Kode Order</th>
+                                <th>Nama Pelanggan</th>
+                                <th>Layanan</th>
+                                <th>Berat</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>ORD001</td>
+                                <td>Fahri</td>
+                                <td>Cuci Kering</td>
+                                <td>3 Kg</td>
+                                <td>Rp21.000</td>
+                                <td>
+                                    <select class="status">
+                                        <option>Diterima</option>
+                                        <option>Dicuci</option>
+                                        <option>Selesai</option>
+                                        <option>Diambil</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn-update"
+                                        onclick="updateStatus(this)">
+                                        Simpan
+                                    </button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>ORD002</td>
+                                <td>Benaya</td>
+                                <td>Cuci Setrika</td>
+                                <td>2 Kg</td>
+                                <td>Rp18.000</td>
+                                <td>
+                                    <select class="status">
+                                        <option>Diterima</option>
+                                        <option selected>Dicuci</option>
+                                        <option>Selesai</option>
+                                        <option>Diambil</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn-update"
+                                        onclick="updateStatus(this)">
+                                        Simpan
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- HALAMAN LAYANAN -->
+            <section id="services" class="page">
+                <h2>Jenis Layanan</h2>
+
+                <div class="panel">
+                    <h3>Daftar Layanan Laundry</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama Layanan</th>
+                                <th>Harga / Kg</th>
+                                <th>Estimasi</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Cuci Kering</td>
+                                <td>Rp7.000</td>
+                                <td>2 Hari</td>
+                            </tr>
+
+                            <tr>
+                                <td>Cuci Setrika</td>
+                                <td>Rp9.000</td>
+                                <td>2 Hari</td>
+                            </tr>
+
+                            <tr>
+                                <td>Express</td>
+                                <td>Rp12.000</td>
+                                <td>1 Hari</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- HALAMAN PELANGGAN -->
+            <section id="customers" class="page">
+                <h2>Data Pelanggan</h2>
+
+                <div class="panel">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nama</th>
+                                <th>No. Telepon</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Fahri</td>
+                                <td>081234567890</td>
+                                <td>fahri@email.com</td>
+                            </tr>
+
+                            <tr>
+                                <td>Benaya</td>
+                                <td>081234567891</td>
+                                <td>benaya@email.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- HALAMAN LAPORAN -->
+            <section id="reports" class="page">
+                <h2>Laporan Pendapatan</h2>
+
+                <div class="panel">
+                    <h3>Ringkasan Pendapatan</h3>
+                    <h1 class="income">Rp750.000</h1>
+                    <p>Total pendapatan dari seluruh pesanan</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        // Berpindah halaman admin
+        function showPage(pageId, button) {
+            document.querySelectorAll(".page").forEach(page => {
+                page.classList.remove("active");
+            });
+
+            document.getElementById(pageId).classList.add("active");
+
+            document.querySelectorAll(".menu").forEach(menu => {
+                menu.classList.remove("active");
+            });
+
+            button.classList.add("active");
+        }
+
+        // Simpan perubahan status (sementara)
+        function updateStatus(button) {
+            const row = button.closest("tr");
+            const status = row.querySelector(".status").value;
+
+            alert("Status pesanan berhasil diubah menjadi: " + status);
+        }
+    </script>
+
+</body>
+</html>

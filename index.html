@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Laundry F&amp;B</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 1. LOGIN -->
+<section id="login" class="login">
+  <div class="hero">
+    <div class="brand"><div class="logo">F&amp;B</div><div><b>Laundry F&amp;B</b><small>Bersih, wangi, praktis</small></div></div>
+    <span class="pill">LAUNDRY CARE</span>
+    <h1>Pakaian bersih,<br><span>hari lebih ringan.</span></h1>
+    <p>Pesan laundry, pantau status, dan kelola pembayaran dalam satu tempat.</p>
+    <div class="waves"><span>◠◡</span><span>◠◡</span><span>◠◡</span></div>
+    <div class="circle c1"></div><div class="circle c2"></div>
+  </div>
+  <div class="formwrap">
+    <div class="eyebrow">Selamat datang kembali</div>
+    <h2>Masuk ke akun</h2>
+    <p class="muted">Masuk untuk melihat pesanan laundry kamu.</p>
+    <label>Email</label><input type="email" placeholder="nama@email.com">
+    <label>Password</label><input type="password" placeholder="Minimal 6 karakter">
+    <button class="btn" onclick="loginUser()">
+    Masuk →
+</button>
+    <p class="alt">Belum punya akun? <a href="#">Daftar</a></p>
+    <p class="note">Pendaftaran publik hanya membuat akun customer. Hak admin diatur secara terpisah oleh pemilik aplikasi.</p>
+  </div>
+</section>
+
+<!-- APP SHELL -->
+<div id="app" class="shell" hidden>
+  <aside class="side">
+    <div class="brand"><div class="logo">F&amp;B</div><div><b>Laundry F&amp;B</b><small>Bersih, wangi, praktis</small></div></div>
+    <div class="eyebrow" id="menuTitle"></div>
+    <nav class="nav" id="nav"></nav>
+    <div class="user"><div class="avatar" id="uA"></div><div><b id="uN"></b><small id="uR"></small></div></div>
+    <a class="out" href="#" data-go="login">↗ &nbsp;Keluar</a>
+  </aside>
+
+  <main>
+    <div class="top">
+      <div><div class="eyebrow">Laundry Management</div><h1 id="title"></h1></div>
+      <div class="status" id="status"></div>
+    </div>
+
+    <!-- ADMIN: pesanan -->
+    <section data-view="orders" hidden>
+      <div class="sec"><div class="eyebrow">Kelola operasional</div><h2>Semua pesanan</h2><p>Perbarui status pekerjaan dan verifikasi pembayaran customer.</p></div>
+      <div class="card row"><div class="l"><div class="ico">✦</div><div><b>ILSAHUNT • Cuci + Kering</b><span class="tag t-wait">Menunggu</span><div class="meta">LFB-4O76OBFA • 08324324332233 • 2 kg</div><span class="muted" style="font-size:11px">QRIS</span><span class="tag t-ok">Lunas</span></div></div><div class="r"><strong>Rp 14.000</strong><select><option>Menunggu</option><option>Siap Diambil</option><option>Selesai</option></select></div></div>
+      <div class="card row"><div class="l"><div class="ico">✦</div><div><b>farrel • Setrika</b><span class="tag t-rdy">Siap Diambil</span><div class="meta">LFB-2074DA65 • 08 • 10 kg</div><span class="muted" style="font-size:11px">QRIS</span><span class="tag t-ok">Lunas</span></div></div><div class="r"><strong>Rp 90.000</strong><select><option>Siap Diambil</option><option>Selesai</option></select></div></div>
+      <div class="card row"><div class="l"><div class="ico">✦</div><div><b>aca • Cuci + Kering</b><span class="tag t-ok">Selesai</span><div class="meta">LFB-7ADC770B • 0882789748 • 2 kg</div><span class="muted" style="font-size:11px">QRIS</span><span class="tag t-ok">Lunas</span></div></div><div class="r"><strong>Rp 14.000</strong><select><option>Selesai</option></select></div></div>
+      <div class="card row"><div class="l"><div class="ico">✦</div><div><b>Fahri • Cuci + Kering</b><span class="tag t-rdy">Siap Diambil</span><div class="meta">LFB-7BB7A0E7 • mhdfahrisaputra73@gmail.com • 3 kg</div><span class="muted" style="font-size:11px">QRIS</span><span class="tag t-ok">Lunas</span></div></div><div class="r"><strong>Rp 21.000</strong><select><option>Siap Diambil</option><option>Selesai</option></select></div></div>
+    </section>
+
+    <!-- ADMIN: transaksi -->
+    <section data-view="trx" hidden>
+      <div class="sec"><div class="eyebrow">Keuangan</div><h2>Riwayat transaksi</h2><p>Daftar metode pembayaran dan status verifikasinya.</p></div>
+      <div class="stats">
+        <div class="card stat"><small>Total transaksi</small><div class="big">4</div></div>
+        <div class="card stat"><small>Sudah lunas</small><div class="big">4</div></div>
+        <div class="card stat"><small>Total terverifikasi</small><div class="big">Rp 139.000</div></div>
+      </div>
+      <div class="card tablecard"><table>
+        <tr><th>KODE</th><th>PELANGGAN</th><th>METODE</th><th>TANGGAL</th><th>TOTAL</th><th>STATUS</th></tr>
+        <tr><td>LFB-4O76OBFA</td><td>ILSAHUNT</td><td>QRIS</td><td>21 Okt 2026</td><td>Rp 14.000</td><td><span class="tag t-ok">Lunas</span></td></tr>
+        <tr><td>LFB-2074DA65</td><td>farrel</td><td>QRIS</td><td>21 Okt 2026</td><td>Rp 90.000</td><td><span class="tag t-ok">Lunas</span></td></tr>
+        <tr><td>LFB-7ADC770B</td><td>aca</td><td>QRIS</td><td>21 Okt 2026</td><td>Rp 14.000</td><td><span class="tag t-ok">Lunas</span></td></tr>
+        <tr><td>LFB-7BB7A0E7</td><td>Fahri</td><td>QRIS</td><td>21 Okt 2026</td><td>Rp 21.000</td><td><span class="tag t-ok">Lunas</span></td></tr>
+      </table></div>
+    </section>
+
+    <!-- ADMIN: keuntungan -->
+    <section data-view="profit" hidden>
+      <div class="sec"><div class="eyebrow">Laporan keuangan</div><h2>Catatan keuntungan</h2><p>Ringkasan pembayaran yang sudah diverifikasi admin.</p></div>
+      <div class="total"><small>Total pembayaran terverifikasi</small><div class="big">Rp 139.000</div><small>Ini merupakan total pemasukan tercatat, bukan laba bersih. Biaya operasional belum dikurangi.</small></div>
+      <div class="card chart"><h3>Grafik pemasukan harian</h3><p>Pengelompokan berdasarkan tanggal pesanan.</p>
+        <div class="bars"><div class="barwrap"><span>Rp 139.000</span><div class="bar"></div></div></div>
+        <div class="barwrap" style="padding-top:8px">21 Okt</div></div>
+    </section>
+
+    <!-- CUSTOMER: beranda -->
+    <section data-view="home" hidden>
+      <div class="banner"><span class="pill">LAUNDRY MADE EASY</span><h2>Urus laundry tanpa ribet.</h2>
+        <p>Bawa pakaian ke toko, pilih layanan, lalu pantau prosesnya langsung dari akun kamu.</p>
+        <a class="cta" href="#" data-go="order">Pesan laundry &nbsp;→</a>
+        <div class="machine"><i></i><em>F&amp;B</em></div></div>
+      <div class="sec sechead"><div><div class="eyebrow">Ringkasan</div><h2>Aktivitas laundry kamu</h2></div><a href="#" data-go="mine">Lihat semua →</a></div>
+      <div class="stats">
+        <div class="card stat c"><div class="ico">▣</div><small>Pesanan aktif</small><div class="big">1</div><small>Pesanan belum selesai</small></div>
+        <div class="card stat c"><div class="ico g">✓</div><small>Pesanan lunas</small><div class="big">2</div><small>Pembayaran terverifikasi</small></div>
+        <div class="card stat c"><div class="ico o">◷</div><small>Total pesanan</small><div class="big">2</div><small>Sejak akun dibuat</small></div>
+      </div>
+      <div class="eyebrow">Pesanan terbaru</div><h2 style="font-size:22px;margin-top:10px">Yang sedang berjalan</h2>
+    </section>
+
+    <!-- CUSTOMER: pesanan saya -->
+    <section data-view="mine" hidden>
+      <div class="sec"><div class="eyebrow">Riwayat</div><h2>Pesanan saya</h2><p>Pantau status laundry dan pembayaran kamu.</p></div>
+      <div class="card row"><div class="l"><div class="ico">✦</div><div><b>Setrika</b><span class="tag t-rdy">Siap Diambil</span><div class="meta">LFB-2074DA65 • 21 Okt 2026 • 10 kg</div><span class="muted" style="font-size:11px">Pembayaran: QRIS</span><span class="tag t-ok">Lunas</span></div></div><div class="r"><strong>Rp 90.000</strong></div></div>
+      <div class="card row"><div class="l"><div class="ico">✦</div><div><b>Cuci + Kering</b><span class="tag t-ok">Selesai</span><div class="meta">LFB-7ADC770B • 21 Okt 2026 • 2 kg</div><span class="muted" style="font-size:11px">Pembayaran: QRIS</span><span class="tag t-ok">Lunas</span></div></div><div class="r"><strong>Rp 14.000</strong></div></div>
+    </section>
+
+    <!-- CUSTOMER: pesan laundry -->
+    <section data-view="order" hidden>
+      <div class="sec sechead"><div><div class="eyebrow">Pesanan baru</div><h2>Pesan layanan laundry</h2><p>Isi detail pakaian dan pilih metode pembayaran.</p></div><div class="ico" style="width:52px;height:52px">✦</div></div>
+      <div class="two">
+        <div class="card form"><h3>Detail pesanan</h3>
+          <label>Nama pelanggan</label><input value="aca">
+          <label>Nomor WhatsApp</label><input placeholder="08xxxxxxxxxx">
+          <label>Jenis layanan</label>
+          <select id="svc"><option value="7000">Cuci + Kering — Rp 7.000/kg</option><option value="9000">Setrika — Rp 9.000/kg</option><option value="12000">Express — Rp 12.000/kg</option></select>
+          <div class="cols"><div><label>Berat pakaian (kg)</label><input id="kg" type="number" value="2" min="1"></div><div><label>Estimasi selesai</label><input value="2–3 hari" readonly></div></div>
+          <label>Catatan untuk admin <span class="muted" style="font-weight:400">(opsional)</span></label><textarea placeholder="Contoh: pakaian putih dipisah"></textarea>
+          <div class="est"><div><small class="muted">Perkiraan total</small><br><small class="muted" id="calc">2 kg × Rp 7.000/kg</small></div><div class="big" id="sum">Rp 14.000</div></div>
+        </div>
+        <aside class="card prices"><div class="ico" style="width:42px;height:42px">✧</div><h3>Daftar harga</h3>
+          <div class="p"><div><b>Cuci + Kering</b><br><small>Estimasi 2–3 hari</small></div><div><b>Rp 7.000</b><br><small>/kg</small></div></div>
+          <div class="p"><div><b>Setrika</b><br><small>Estimasi 2–3 hari</small></div><div><b>Rp 9.000</b><br><small>/kg</small></div></div>
+          <div class="p"><div><b>Express</b><br><small>Estimasi 1 hari</small></div><div><b>Rp 12.000</b><br><small>/kg</small></div></div>
+          <div class="hint">Harga akhir mengikuti berat aktual yang dikonfirmasi petugas toko. Pesanan dibawa langsung ke toko.</div>
+        </aside>
+      </div>
+    </section>
+
+    <p class="foot">© 2026 Laundry F&amp;B • Bersih, wangi, praktis</p>
+  </main>
+</div>
+
+<script>
+    function loginUser() {
+    const email = document.querySelector(
+        'input[type="email"]'
+    ).value;
+
+    const password = document.querySelector(
+        'input[type="password"]'
+    ).value;
+
+    // Login admin sementara
+    if (
+        email === "admin@laundry.com" &&
+        password === "admin123"
+    ) {
+        window.location.href = "admin.html";
+    } 
+
+    // Login customer sementara
+    else {
+        go("home");
+    }
+}
+const MENU={
+  admin:{t:'PANEL ADMIN',title:'Panel Admin',st:'Admin aktif',u:['F','Fahri','Administrator'],
+    items:[['▥','Ringkasan','orders'],['▣','Pesanan','orders'],['▤','Transaksi','trx'],['▥','Keuntungan','profit']]},
+  cust:{t:'MENU CUSTOMER',st:'Siap membantu laundry kamu',u:['A','aca','Customer'],
+    items:[['⌂','Beranda','home'],['✦','Pesan Laundry','order'],['▣','Pesanan Saya','mine']]}
+};
+const ADMIN=['orders','trx','profit'];
+const $=s=>document.querySelector(s);
+function go(v){
+  const login=v==='login';
+  $('#login').hidden=!login;$('#app').hidden=login;if(login)return;
+  const role=ADMIN.includes(v)?'admin':'cust',m=MENU[role];
+  $('#menuTitle').textContent=m.t;$('#title').textContent=m.title||'Halo, aca!';$('#status').textContent=m.st;
+  $('#uA').textContent=m.u[0];$('#uN').textContent=m.u[1];$('#uR').textContent=m.u[2];
+  $('#nav').innerHTML=m.items.map(i=>`<a data-go="${i[2]}" class="${i[2]===v&&i[1]!=='Ringkasan'?'on':''}"><span>${i[0]}</span>${i[1]}</a>`).join('');
+  document.querySelectorAll('[data-view]').forEach(s=>s.hidden=s.dataset.view!==v);
+}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-go]');if(a){e.preventDefault();go(a.dataset.go)}});
+const rp=n=>'Rp '+n.toLocaleString('id-ID');
+function calc(){const p=+$('#svc').value,k=+$('#kg').value||0;$('#sum').textContent=rp(p*k);$('#calc').textContent=`${k} kg × ${rp(p)}/kg`}
+$('#svc').onchange=$('#kg').oninput=calc;
+go('login'); // ganti ke 'orders' / 'home' untuk langsung melihat dashboard
+</script>
+</body>
+</html>

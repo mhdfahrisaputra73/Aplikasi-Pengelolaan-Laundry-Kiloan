@@ -1,0 +1,282 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+        135deg,
+        #dff4ff,
+        #effaff,
+        #b8e2ff
+    );
+    color: #123b78;
+}
+
+/* DEKORASI BUIH */
+body::before {
+    content: "";
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    top: 10%;
+    right: 5%;
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    bottom: 5%;
+    left: 20%;
+    z-index: -1;
+}
+
+/* DASHBOARD */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 240px;
+    background: #ffffff;
+    padding: 25px 18px;
+    box-shadow: 3px 0 15px rgba(18, 59, 120, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.brand {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.brand h2 {
+    color: #167ac6;
+    font-size: 21px;
+}
+
+.brand p {
+    color: #7b9bb8;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu {
+    border: none;
+    background: transparent;
+    padding: 14px;
+    text-align: left;
+    font-size: 15px;
+    color: #45678d;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu:hover,
+.menu.active {
+    background: #dff2ff;
+    color: #0878c9;
+    font-weight: bold;
+}
+
+.logout {
+    margin-top: auto;
+    padding: 13px;
+    text-align: center;
+    background: #ffe8e8;
+    color: #d64b4b;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* KONTEN */
+.content {
+    flex: 1;
+    padding: 30px;
+    min-width: 0;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 27px;
+    margin-bottom: 7px;
+}
+
+.topbar p {
+    color: #7191af;
+}
+
+.admin-info {
+    background: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+}
+
+/* RINGKASAN */
+.summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.card,
+.panel {
+    background: white;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(18, 59, 120, 0.06);
+}
+
+.card p {
+    color: #7191af;
+    margin-bottom: 12px;
+}
+
+.card h2 {
+    color: #0878c9;
+    font-size: 25px;
+}
+
+/* HALAMAN */
+.page {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(18, 59, 120, 0.06);
+}
+
+.page.active {
+    display: block;
+}
+
+.page h2 {
+    margin-bottom: 22px;
+}
+
+/* TABEL */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5f0f8;
+}
+
+th {
+    background: #eaf7ff;
+    color: #176ba9;
+}
+
+td {
+    color: #45678d;
+}
+
+tr:hover {
+    background: #f7fcff;
+}
+
+/* STATUS */
+.status {
+    padding: 8px;
+    border: 1px solid #b9d9ef;
+    border-radius: 7px;
+    color: #176ba9;
+    background: white;
+}
+
+/* TOMBOL */
+.btn-update {
+    padding: 9px 13px;
+    border: none;
+    background: #168bd0;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.btn-update:hover {
+    background: #086eae;
+}
+
+/* LAPORAN */
+.income {
+    color: #168bd0;
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+    .summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .sidebar nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .logout {
+        margin-top: 20px;
+    }
+
+    .content {
+        padding: 18px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+}
